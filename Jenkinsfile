@@ -22,21 +22,23 @@ pipeline {
                 }
             }
             steps {
-              error "Something is wrong"
+                  echo "Something is wrong"
             }
         }
         stage('Building and Running Python Container') {
-            agent {
-                docker {
-                    image 'davidaris/python20code'
-                    args '-v /var/run/docker.sock:/var/run/docker.sock'
+            steps {
+                script {
+                    docker.image('davidaris/python20code').run('-t', '--name=my-container')
                 }
             }
-            steps {
-                container(name: 'my_container', rm: true) {
-                    //
+        }
+    }
+    post {
+        always {
+            timeout(time: 20, unit: 'SECONDS') {
+                script {
+                    docker.image('davidaris/python20code').stop()
                 }
-                echo "Finished"
             }
         }
     }
