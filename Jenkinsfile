@@ -26,7 +26,7 @@ pipeline {
         stage('Building and Running Python Container') {
             steps {
                 script {
-                    docker.image('davidaris/python20code').run('-t', '--name=my-container')
+                    docker.image('davidaris/python20code').run('--name=my-container')
                 }
             }
         }
