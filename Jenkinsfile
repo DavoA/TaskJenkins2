@@ -13,10 +13,12 @@ pipeline {
     stages {
         stage('Check branch name') {
             when {
-                allOf {
-                    expression { env.actionFlag != 'closed' }
-                    expression { env.sourseBranchName != 'staging' }
-                    expression { env.targetBranchName != 'main' }
+                not {
+                    allOf {
+                        expression { env.actionFlag != 'closed' }
+                        expression { env.sourseBranchName != 'staging' }
+                        expression { env.targetBranchName != 'main' }
+                    }
                 }
             }
             steps {
