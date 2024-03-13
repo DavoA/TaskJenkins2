@@ -20,7 +20,7 @@ pipeline {
                 }
             }
             steps {
-                  echo "Something is wrong"
+                  echo "Everething is good"
             }
         }
         stage('Building and Running Python Container') {
