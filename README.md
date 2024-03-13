@@ -1,3 +1,2 @@
 # TaskJenkins2
-For the second new new nnnnnngrggen task for jenkins
-fdgadfgadfg FSDF
+For the second new task for jenkins
