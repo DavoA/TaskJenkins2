@@ -31,13 +31,4 @@ pipeline {
             }
         }
     }
-    post {
-        always {
-            timeout(time: 20, unit: 'SECONDS') {
-                script {
-                    docker.image('davidaris/python20code').stop()
-                }
-            }
-        }
-    }
 }
